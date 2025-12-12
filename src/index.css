@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=swap');
+
+@layer base {
+  :root {
+    /* SKOP Brand Colors */
+    --primary: 43 100% 50%;
+    --primary-dark: 27 92% 48%;
+    --primary-light: 45 100% 70%;
+    --primary-foreground: 220 26% 14%;
+    
+    --navy: 213 55% 11%;
+    --navy-light: 213 45% 20%;
+    
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    
+    --surface: 210 17% 98%;
+    --surface-foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --secondary: 213 55% 11%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 210 17% 95%;
+    --muted-foreground: 0 0% 35%;
+
+    --accent: 43 100% 50%;
+    --accent-foreground: 220 26% 14%;
+
+    --destructive: 0 65% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --success: 122 39% 49%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 45 100% 51%;
+    --warning-foreground: 0 0% 10%;
+
+    --info: 207 90% 54%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 0 0% 84%;
+    --input: 0 0% 84%;
+    --ring: 43 100% 50%;
+
+    --radius: 0.625rem;
+
+    --shadow: 0 6px 18px rgba(11, 12, 15, 0.25);
+    --shadow-glow: 0 0 40px hsl(43 100% 50% / 0.3);
+    --shadow-card: 0 4px 20px rgba(11, 12, 15, 0.08);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(43 100% 50%), hsl(27 92% 48%));
+    --gradient-navy: linear-gradient(135deg, hsl(213 55% 11%), hsl(213 45% 20%));
+    --gradient-hero: linear-gradient(180deg, hsl(213 55% 11%) 0%, hsl(213 45% 25%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 17% 98%) 100%);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 213 55% 11%;
+    --foreground: 0 0% 98%;
+    --card: 213 45% 15%;
+    --card-foreground: 0 0% 98%;
+    --popover: 213 45% 15%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 43 100% 50%;
+    --primary-foreground: 220 26% 14%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 213 45% 20%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 43 100% 50%;
+    --accent-foreground: 220 26% 14%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 213 32.6% 25%;
+    --input: 213 32.6% 25%;
+    --ring: 43 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-navy {
+    background: var(--gradient-navy);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-surface {
+    background: var(--gradient-surface);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark {
+    background: rgba(13, 27, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .slide {
+    page-break-after: always;
+    page-break-inside: avoid;
+    min-height: 100vh;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--surface));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary-dark));
+}
