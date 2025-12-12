@@ -110,7 +110,7 @@ const LogoBar = () => (
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.3 }}
-      src="/logo/skop.png"
+      src={`${import.meta.env.BASE_URL}logo/skop.png`}
       alt="SCOP Logo"
       className="h-10 md:h-14 w-auto object-contain rounded-lg shadow-lg bg-white/10 backdrop-blur-sm p-1"
     />
@@ -118,12 +118,13 @@ const LogoBar = () => (
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.3 }}
-      src="/logo/btn.png"
+      src={`${import.meta.env.BASE_URL}logo/btn.png`}
       alt="Organizer Logo"
       className="h-10 md:h-14 w-auto object-contain rounded-lg shadow-lg bg-white/10 backdrop-blur-sm p-1"
     />
   </div>
 );
+
 
 // Print Logos
 const PrintLogos = () => (
